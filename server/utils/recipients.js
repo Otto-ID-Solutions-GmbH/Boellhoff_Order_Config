@@ -1,6 +1,6 @@
 const recipients = {
-    main: "raey@otto-id.com",
-    cc: ["raeygetahun@gmail.com", "rayxaddisu@gmail.com"],
+    main: "tobias@otto-id.com",
+    cc: ["alexander@otto-id.com", "barbara@otto-id.com"],
     additional: "raey@otto-id.com"
 };
 
