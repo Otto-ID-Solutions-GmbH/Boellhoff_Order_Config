@@ -33,7 +33,7 @@
             <div id="error-message_customer" class="error-message" style="display: none;"></div>
 
             <label class="required" for="customerName">Customer Name </label>
-            <input type="text" id="customerName" name="customerName" pattern="[A-Za-z0-9]*" maxlength="20" required>
+            <input type="text" id="customerName" name="customerName" maxlength="20" required>
 
             <label class="required" for="stationNumber">Station Number </label>
             <input type="number" id="stationNumber" name="stationNumber" value=10 max="9999" required>
@@ -64,6 +64,9 @@
             <!-- new -->
             <label for="teamviewer_alies">Alies for TeamViewer </label>
             <input type="text" id="teamviewer_alies" name="teamviewer_alies">
+
+            <label for="Order_number">Order number </label>
+            <input type="text" id="Order_number" name="Order_number">
 
 
             <label for="final_cost_center">Final Cost Center </label>
@@ -98,40 +101,40 @@
             <div class="inline-select">
                 <label class="required" for="epcDependent">EPC-Dependent :</label>
                 <select id="epcDependent" name="epcDependent" required>
-                    <option value="TRUE">On</option>
-                    <option value="FALSE">Off</option>
+                    <option value="true">On</option>
+                    <option value="false">Off</option>
                 </select>
             </div>
 
             <div class="inline-select">
-                <label class="required" for="orderTransfer">Order Transfer :</label>
-                <select id="orderTransfer" name="orderTransfer" required>
-                    <option value="TRUE">AUTOMATIC</option>
-                    <option value="FALSE">MANUAL</option>
+                <label class="required" for="orderTransferAutomatic">Order Transfer :</label>
+                <select id="orderTransferAutomatic" name="orderTransferAutomatic" required>
+                    <option value="true">AUTOMATIC</option>
+                    <option value="false">MANUAL</option>
                 </select>
             </div>
 
             <div class="inline-select">
                 <label class="required" for="transferOptionSummarized">Transfer Option :</label>
                 <select id="transferOptionSummarized" name="transferOptionSummarized" required>
-                    <option value="FALSE">Single</option>
-                    <option value="TRUE">Summarized</option>
+                    <option value="false">Single</option>
+                    <option value="true">Summarized</option>
                 </select>
             </div>
 
             <div class="inline-select">
-                <label class="required" for="married">System Option :</label>
-                <select id="married" name="married" required>
-                    <option value="FALSE">Unmarried</option>
-                    <option value="TRUE">Married</option>
+                <label class="required" for="epcMarriedToContainer">System Option :</label>
+                <select id="epcMarriedToContainer" name="epcMarriedToContainer" required>
+                    <option value="false">Unmarried</option>
+                    <option value="true">Married</option>
                 </select>
             </div>
             <div class="inline-select">
 
                 <label class="required" for="inventoryFunctionality">Inventory Option :</label>
                 <select id="inventoryFunctionality" name="inventoryFunctionality" required>
-                    <option value="FALSE">Off</option>
-                    <option value="TRUE">On</option>
+                    <option value="false">Off</option>
+                    <option value="true">On</option>
                 </select>
             </div>
 
@@ -139,16 +142,16 @@
 
                 <label class="required" for="bluetooth">Bluetooth :</label>
                 <select id="bluetooth" name="bluetooth" required>
-                    <option value="FALSE">Off</option>
-                    <option value="TRUE">On</option>
+                    <option value="false">Off</option>
+                    <option value="true">On</option>
                 </select>
             </div>
 
             <div class="inline-select">
                 <label class="required" for="usb">USB :</label>
-                <select id="usb" name="usb" required>
-                    <option value="FALSE">Off</option>
-                    <option value="TRUE">On</option>
+                <select id="usb" name="stationary" required>
+                    <option value="false">Off</option>
+                    <option value="true">On</option>
                 </select>
             </div>
 
@@ -156,8 +159,8 @@
 
                 <label class="required" for="landscape">Landscape :</label>
                 <select id="landscape" name="landscape" required>
-                    <option value="FALSE">Off</option>
-                    <option value="TRUE">On</option>
+                    <option value="false">Off</option>
+                    <option value="true">On</option>
                 </select>
             </div>
 
@@ -174,39 +177,39 @@
                 <label id="daysLable">Days of the Week :</label>
                 <div class="days-row">
                     <label>
-                        <input type="hidden" name="sendingOnMonday" value="FALSE" />
-                        <input type="checkbox" name="sendingOnMonday" value="TRUE">
+                        <input type="hidden" name="sendingOnMonday" value="false" />
+                        <input type="checkbox" name="sendingOnMonday" value="true">
                         Monday
                     </label>
                     <label>
-                        <input type="hidden" name="sendingOnTuesday" value="FALSE" />
-                        <input type="checkbox" name="sendingOnTuesday" value="TRUE">
+                        <input type="hidden" name="sendingOnTuesday" value="false" />
+                        <input type="checkbox" name="sendingOnTuesday" value="true">
                         Tuesday
                     </label>
                     <label>
-                        <input type="hidden" name="sendingOnWednesday" value="FALSE" />
-                        <input type="checkbox" name="sendingOnWednesday" value="TRUE">
+                        <input type="hidden" name="sendingOnWednesday" value="false" />
+                        <input type="checkbox" name="sendingOnWednesday" value="true">
                         Wednesday
                     </label>
 
                     <label>
-                        <input type="hidden" name="sendingOnThursday" value="FALSE" />
-                        <input type="checkbox" name="sendingOnThursday" value="TRUE">
+                        <input type="hidden" name="sendingOnThursday" value="false" />
+                        <input type="checkbox" name="sendingOnThursday" value="true">
                         Thursday
                     </label>
                     <label>
-                        <input type="hidden" name="sendingOnFriday" value="FALSE" />
-                        <input type="checkbox" name="sendingOnFriday" value="TRUE">
+                        <input type="hidden" name="sendingOnFriday" value="false" />
+                        <input type="checkbox" name="sendingOnFriday" value="true">
                         Friday
                     </label>
                     <label>
-                        <input type="hidden" name="sendingOnSaturday" value="FALSE" />
-                        <input type="checkbox" name="sendingOnSaturday" value="TRUE">
+                        <input type="hidden" name="sendingOnSaturday" value="false" />
+                        <input type="checkbox" name="sendingOnSaturday" value="true">
                         Saturday
                     </label>
                     <label>
-                        <input type="hidden" name="sendingOnSunday" value="FALSE" />
-                        <input type="checkbox" name="sendingOnSunday" value="TRUE">
+                        <input type="hidden" name="sendingOnSunday" value="false" />
+                        <input type="checkbox" name="sendingOnSunday" value="true">
                         Sunday
                     </label>
                 </div>
@@ -225,8 +228,8 @@
             <div class="inline-select">
                 <label class="required" for="internalAntenna">Antenna :</label>
                 <select id="antenna" name="internalAntenna">
-                    <option value="TRUE">Internal</option>
-                    <option value="FALSE">Shelf - Ground</option>
+                    <option value="true">Internal</option>
+                    <option value="false">Shelf - Ground</option>
                 </select>
             </div>
 
@@ -270,18 +273,18 @@
             <input type="number" id="dbm" name="dbm" min="10" max="30" required>
 
             <div class="inline-select">
-                <label class="required" for="deleteFunction">Delete Function :</label>
-                <select id="deleteFunction" name="deleteFunction" required>
-                    <option value="TRUE">On</option>
-                    <option value="FALSE">Off</option>
+                <label class="required" for="deleteToggle">Delete Function :</label>
+                <select id="deleteToggle" name="deleteToggle" required>
+                    <option value="true">On</option>
+                    <option value="false">Off</option>
                 </select>
             </div>
 
             <div class="inline-select">
                 <label class="required" for="engel">Engel :</label>
                 <select id="engel" name="engel" required>
-                    <option value="TRUE">On</option>
-                    <option value="FALSE">Off</option>
+                    <option value="true">On</option>
+                    <option value="false">Off</option>
                 </select>
             </div>
 
@@ -290,6 +293,16 @@
                 <label class="required" id="blockingTimeLable" for="blockingTime">Blocking Time</label>
                 <input type="number" id="blockingTime" name="blockingTime" max="9999999999" value="604800">
             </div>
+
+            <div class="inline-select">
+                <label class="required" for="WallMountingKit">Wall-Mounting-Kit:</label>
+                <select id="WallMountingKit" name="WallMountingKit" required>
+                    <option disabled selected> -- select an option -- </option>
+                    <option value=1>Yes</option>
+                    <option value=0>No</option>
+                </select>
+            </div>
+
             <label class="required" for="key">Product Key :</label>
             <input type="text" id="key" name="key" value="FFFF-FFFF-FFFF" required>
             <div class="inline-select">
@@ -307,6 +320,7 @@
                     <option value="mfabian@boellhoff.com">mfabian@boellhoff.com</option>
                     <option value="a.goeppel@schrauben-engel.de">a.goeppel@schrauben-engel.de</option>
                     <option value="mgrassy@boellhoff.com">mgrassy@boellhoff.com</option>
+                    <option value="getahunraey@gmail.com">getahunraey@gmail.com</option>
                 </select>
             </div>
 
@@ -322,5 +336,5 @@
 
 
     </script>
-    <script src="script.js"></script>
+    <script src="script.js?v=1.5"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"> </script>

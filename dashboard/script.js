@@ -46,8 +46,8 @@ const costCenter = {
   BOH: "BOH",
 };
 const antennaDict = {
-  "TRUE": "10",
-  "FALSE": "22",
+  "true": "10",
+  "false": "22",
 };
 
 function valueUpdater(tobeUpdated, value) {
