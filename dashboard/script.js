@@ -153,6 +153,10 @@ function updatedbm() {
   valueUpdater(dbm, dbmValue);
 }
 
+function serialNumberPadder() {
+  stationNumber.value = stationNumber.value.padStart(4, '0');
+}
+
 //events
 deviceType.addEventListener("change", updateTeamViewerAlies);
 salesUnit.addEventListener("change", updateTeamViewerAlies);
@@ -168,6 +172,7 @@ floorScan800.addEventListener("change", displayer);
 deviceType.addEventListener("change", displayer);
 sendingMethod.addEventListener("change", sendingMethodReactor);
 engel.addEventListener("change", engelReactor);
+stationNumber.addEventListener('blur', serialNumberPadder)
 
 window.onload = function() {
   updatedbm();

@@ -33,7 +33,7 @@ const typeMapping = {
     engel: "boolean",
 
     // Numbers
-    stationNumber: "number",
+    // stationNumber: "number",
     final_cost_center: "number",
     seconds: "number",
     floorScan1200x800: "number",

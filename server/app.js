@@ -1,9 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
-const { notInJSON, recipients } = require("./utils/consts.js")
+const { notInJSON } = require("./utils/consts.js")
 const { convertValue, getAddressForEmail } = require("./utils/helperFunctions.js")
 const { sendEmails } = require('./utils/email.js');
+const { recipients } = require("./utils/recipients.js")
 
 dotenv.config();
 
@@ -42,4 +43,4 @@ app.post("/submit", (req, res) => {
         .catch(() => res.sendFile(__dirname + "/views/error.html"));
 });
 
-app.listen(port, () => {});
+app.listen(port, () => { });
