@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css?v=1.3">
+    <link rel="stylesheet" href="styles.css">
     <title>Configuration Form</title>
     <link rel="icon" href="https://otto-id.com/wp-content/uploads/2021/07/cropped-favicon-150x150.png" sizes="32x32" />
     <link rel="icon" href="https://otto-id.com/wp-content/uploads/2021/07/cropped-favicon-300x300.png"
@@ -16,32 +16,20 @@
 <body>
     <div class="container">
         <h1>Configuration Form</h1>
-        <form action="http://89.58.25.240:3030/submit" method="post" id="configForm">
-            <!-- new -->
+        <form action="http://127.0.0.1:3030/submit" method="post" id="configForm">
+
+            <!-- 1 -->
             <div class="inline-select">
                 <label for="Device-Type">Device-Type : </label>
                 <select id="Device-Type" name="Device-Type">
                     <option value="Eco-Flexible">Eco-Flexible</option>
                     <option value="Eco-Mobile">Eco-Mobile</option>
                     <option value="Eco-Ultimate">Eco-Ultimate</option>
+                    <option value="Eco-LabelScan">Eco-LabelScan</option>
                 </select>
             </div>
 
-            <label class="required" for="customerNumber">Customer Number </label>
-            <input type="text" id="customerNumber" name="customerNumber" pattern="[A-Za-z]{3}[0-9]{7}" maxlength="10"
-                oninput="customerNumberValidation(this)" required>
-            <div id="error-message_customer" class="error-message" style="display: none;"></div>
-
-            <label class="required" for="customerName">Customer Name </label>
-            <input type="text" id="customerName" name="customerName" maxlength="20" required>
-
-            <label class="required" for="stationNumber">Station Number </label>
-            <input type="text" id="stationNumber" name="stationNumber" maxlength="4" required>
-
-            <label class="required" for="address">Address </label>
-            <input type="text" id="address" name="address" pattern="[A-Za-z0-9]*" maxlength="40" required>
-            <!-- <input type="text" id="address" name="address"  > -->
-            <!-- new -->
+            <!-- 2 -->
             <div class="inline-select">
                 <label for="Sales-Unit">Sales-Unit : </label>
                 <select id="Sales-Unit" name="Sales-Unit">
@@ -61,43 +49,67 @@
                     <option value="HU1">HU1</option>
                 </select>
             </div>
-            <!-- new -->
-            <label for="teamviewer_alies">Alies for TeamViewer </label>
-            <input type="text" id="teamviewer_alies" name="teamviewer_alies">
 
+            <!-- 3 -->
             <label for="Order_number">Order number </label>
             <input type="text" id="Order_number" name="Order_number">
 
-
+            <!-- 4 -->
             <label for="final_cost_center">Final Cost Center </label>
             <input type="number" id="final_cost_center" name="final_cost_center" max="99999">
 
-
+            <!-- 5 -->
             <label for="final_investment_number">Final Investment number </label>
             <input type="text" id="final_investment_number" name="final_investment_number"
                 oninput="investmentNumberValidation(this)" maxlength="7">
             <div id="error-message_investment" class="error-message" style="display: none;"></div>
 
+            <!-- 6 -->
+            <label for="teamviewer_alias">Alias for TeamViewer </label>
+            <input type="text" id="teamviewer_alias" name="teamviewer_alias">
 
+            <!-- 7 -->
+            <label class="required" for="customerNumber">Customer Number </label>
+            <input type="text" id="customerNumber" name="customerNumber" pattern="[A-Za-z]{3}[0-9]{7}" maxlength="10"
+                oninput="customerNumberValidation(this)" required>
+            <div id="error-message_customer" class="error-message" style="display: none;"></div>
+
+            <!-- 8 -->
+            <label class="required" for="customerName">Customer Name </label>
+            <input type="text" id="customerName" name="customerName" maxlength="20" required>
+
+            <!-- 9 -->
+            <label class="required" for="stationNumber">Station Number </label>
+            <input type="text" id="stationNumber" name="stationNumber" maxlength="4" required>
+
+            <!-- 10 -->
+            <label class="required" for="address">Address </label>
+            <input type="text" id="address" name="address" maxlength="15" required>
+
+            <!-- 11 -->
             <label class="required" for="login_email">Ecoportal E-Mail </label>
             <input type="email" id="login_email" name="login_email" value="demo@boellhoff.com" required>
 
+            <!-- 12 -->
             <label class="required" for="login_pass">Ecoportal Password </label>
             <input type="password" id="login_pass" name="login_pass" value="a!b2c3D4" required>
 
+            <!-- 13 -->
             <label class="required" for="openOrdersLink">Open Orders</label>
             <input type="url" id="openOrdersLink" name="openOrdersLink"
                 value="https://ecoportal.boellhoff.com/reporting/open_orders" required>
 
-            <label class="required" for="articleFinderLink">Article Finder </label>
+            <!-- 14     -->
+            <label class="required" for="articleFinderLink">Article Finder</label>
             <input type="url" id="articleFinderLink" name="articleFinderLink"
                 value="https://ecoportal.boellhoff.com/reporting/actual_container" required>
 
+            <!-- 15     -->
             <label class="required" for="tutorialLink">Tutorial Link </label>
             <input type="url" id="tutorialLink" name="tutorialLink" value="https://vimeo.com/814648271/f1e2928b55"
                 required>
 
-
+            <!-- 16 -->
             <div class="inline-select">
                 <label class="required" for="epcDependent">EPC-Dependent :</label>
                 <select id="epcDependent" name="epcDependent" required>
@@ -106,6 +118,7 @@
                 </select>
             </div>
 
+            <!-- 17 -->
             <div class="inline-select">
                 <label class="required" for="orderTransferAutomatic">Order Transfer :</label>
                 <select id="orderTransferAutomatic" name="orderTransferAutomatic" required>
@@ -114,6 +127,7 @@
                 </select>
             </div>
 
+            <!-- 18 -->
             <div class="inline-select">
                 <label class="required" for="transferOptionSummarized">Transfer Option :</label>
                 <select id="transferOptionSummarized" name="transferOptionSummarized" required>
@@ -122,6 +136,7 @@
                 </select>
             </div>
 
+            <!-- 19 -->
             <div class="inline-select">
                 <label class="required" for="epcMarriedToContainer">System Option :</label>
                 <select id="epcMarriedToContainer" name="epcMarriedToContainer" required>
@@ -129,8 +144,9 @@
                     <option value="true">Married</option>
                 </select>
             </div>
-            <div class="inline-select">
 
+            <!-- 20 -->
+            <div class="inline-select">
                 <label class="required" for="inventoryFunctionality">Inventory Option :</label>
                 <select id="inventoryFunctionality" name="inventoryFunctionality" required>
                     <option value="false">Off</option>
@@ -138,8 +154,8 @@
                 </select>
             </div>
 
+            <!-- 21 -->
             <div class="inline-select">
-
                 <label class="required" for="bluetooth">Bluetooth :</label>
                 <select id="bluetooth" name="bluetooth" required>
                     <option value="false">Off</option>
@@ -147,6 +163,7 @@
                 </select>
             </div>
 
+            <!-- 22 -->
             <div class="inline-select">
                 <label class="required" for="usb">USB :</label>
                 <select id="usb" name="stationary" required>
@@ -155,8 +172,8 @@
                 </select>
             </div>
 
+            <!-- 23 -->
             <div class="inline-select">
-
                 <label class="required" for="landscape">Landscape :</label>
                 <select id="landscape" name="landscape" required>
                     <option value="false">Off</option>
@@ -164,6 +181,17 @@
                 </select>
             </div>
 
+            <!-- 24 -->
+            <div class="inline-select">
+                <label class="required" for="postboxMode">Postbox Mode:</label>
+                <select id="postboxMode" name="postboxMode" required>
+                    <option value="" disabled selected hidden> -- select an option -- </option>
+                    <option value="false">On</option>
+                    <option value="true">Off</option>
+                </select>
+            </div>
+
+            <!-- 25 -->
             <div class="inline-select">
                 <label class="required" for="sendingMethod">Sending Method :</label>
                 <select id="sendingMethod" name="sendingMethod" required>
@@ -221,10 +249,11 @@
             </div>
 
             <div id="secondsWrapper">
-                <label id="secondsLable" for="seconds">Seconds :</label>
-                <input type="number" id="seconds" name="seconds" min="0" max="9999999">
+                <label id="secondsLable" for="sendingEveryXSeconds">Seconds :</label>
+                <input type="number" id="sendingEveryXSeconds" name="sendingEveryXSeconds" min="0" max="9999999">
             </div>
 
+            <!-- 26 -->
             <div class="inline-select">
                 <label class="required" for="internalAntenna">Antenna :</label>
                 <select id="antenna" name="internalAntenna">
@@ -233,45 +262,15 @@
                 </select>
             </div>
 
-            <label for="floorScan1200x800">FloorScan 1200x800</label>
-            <input type="number" id="floorScan1200x800" name="floorScan1200x800" max="99">
-
-            <label for="floorScan800x600">FloorScan 800x600</label>
-            <input type="number" id="floorScan800x600" name="floorScan800x600" max="99">
-
-            <label for="shelfScan">ShelfScan</label>
-            <input type="number" id="shelfScan" name="shelfScan" max="99">
-
-            <label for="labelScan">LabelScan</label>
-            <input type="number" id="labelScan" name="labelScan" max="99">
-
-            <div id="powerChargerWrapper">
-                <label for="powerCharger">Power Charger</label>
-                <input type="number" id="powerCharger" name="powerCharger" max="99">
-            </div>
-
-            <div id="tAdapterWrapper">
-                <label for="tAdapter">T-Adapter</label>
-                <input type="number" id="tAdapter" name="tAdapter" max="99">
-            </div>
-
-            <div id="extensionCable15mWrapper">
-                <label for="extensionCable15m">Extention cable 1,5m</label>
-                <input type="number" id="extensionCable15m" name="extensionCable15m" max="99">
-            </div>
-
-            <div id="extensionCable3mWrapper">
-                <label for="extensionCable3m">Extention cable 3m</label>
-                <input type="number" id="extensionCable3m" name="extensionCable3m" max="99">
-            </div>
-
-
+            <!-- 27 -->
             <label class="required" for="pin">PIN :</label>
             <input type="number" id="pin" name="pin" max="99999999" value="33649" required>
 
+            <!-- 28 -->
             <label class="required" for="dbm">dbm :</label>
             <input type="number" id="dbm" name="dbm" min="10" max="30" required>
 
+            <!-- 29 -->
             <div class="inline-select">
                 <label class="required" for="deleteToggle">Delete Function :</label>
                 <select id="deleteToggle" name="deleteToggle" required>
@@ -280,31 +279,111 @@
                 </select>
             </div>
 
+            <!-- 30 -->
             <div class="inline-select">
                 <label class="required" for="engel">Engel :</label>
                 <select id="engel" name="engel" required>
-                    <option value="true">On</option>
                     <option value="false">Off</option>
+                    <option value="true">On</option>
                 </select>
             </div>
 
-
-            <div id="blockingTimeWrapper">
-                <label class="required" id="blockingTimeLable" for="blockingTime">Blocking Time</label>
-                <input type="number" id="blockingTime" name="blockingTime" max="9999999999" value="604800">
+            <!-- 31 -->
+            <div class="inline-select">
+                <label class="required" for="showScannedLabelsCountInOrderView">Show Scanned Lable Counter In
+                    Orders:</label>
+                <select id="showScannedLabelsCountInOrderView" name="showScannedLabelsCountInOrderView" required>
+                    <option value="" selected> -- select an option -- </option>
+                    <option value="true">Off</option>
+                    <option value="false">On</option>
+                </select>
             </div>
 
+            <!-- 32 -->
+            <div id="blockingTimeWrapper">
+                <label class="required" id="blockingTimeLable" for="blockingTime">Blocking Time</label>
+                <input type="number" id="blockingTime" name="blockingTime" max="9999999999" value="43200" required>
+            </div>
+
+            <!-- 33 -->
+            <label class="required" id="showScreensaverAfterSeconds" for="showScreensaverAfterSeconds">Screensaver
+                timeout in seconds</label>
+            <input type="number" id="showScreensaverAfterSeconds" name="showScreensaverAfterSeconds" max="9999999999"
+                value="120" required>
+
+
+            <!-- 34 -->
+            <label class="required" id="fallBackToDashboardAfterSeconds" for="fallBackToDashboardAfterSeconds">Fall back
+                to dashboard after timeout in seconds</label>
+            <input type="number" id="fallBackToDashboardAfterSeconds" name="fallBackToDashboardAfterSeconds"
+                max="9999999999" value="60" required>
+
+
+            <!-- 35 -->
+            <label class="required" id="beepVolume" for="beepVolume">Beep Volume</label>
+            <input type="number" id="beepVolume" name="beepVolume" max="9999999999" value="100" required>
+
+
+            <!-- 36 -->
+            <label for="floorScan1200x800">FloorScan 1200x800</label>
+            <input type="number" id="floorScan1200x800" name="floorScan1200x800" max="99">
+
+            <!-- 37 -->
+            <label for="floorScan800x600">FloorScan 800x600</label>
+            <input type="number" id="floorScan800x600" name="floorScan800x600" max="99">
+
+            <!-- 38 -->
+            <div id="extensionCable15mWrapper">
+                <option disabled selected> -- select an option -- </option>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </div>
+
+            <!-- 39 -->
+            <div id="extensionCable3mWrapper">
+                <option disabled selected> -- select an option -- </option>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </div>
+
+            <!-- 40 -->
+            <label for="shelfScan">ShelfScan</label>
+            <input type="number" id="shelfScan" name="shelfScan" max="99">
+
+            <!-- 41 -->
+            <label for="labelScan">LabelScan</label>
+            <input type="number" id="labelScan" name="labelScan" max="99">
+
+            <!-- 42 -->
+            <div id="tAdapterWrapper">
+                <label for="tAdapter">T-Adapter</label>
+                <input type="number" id="tAdapter" name="tAdapter" max="99">
+            </div>
+
+            <!-- 43 -->
             <div class="inline-select">
                 <label class="required" for="WallMountingKit">Wall-Mounting-Kit:</label>
                 <select id="WallMountingKit" name="WallMountingKit" required>
-                    <option disabled selected> -- select an option -- </option>
+                    <option value="" disabled selected> -- select an option -- </option>
                     <option value=1>Yes</option>
                     <option value=0>No</option>
                 </select>
             </div>
 
-            <label class="required" for="key">Product Key :</label>
-            <input type="text" id="key" name="key" value="FFFF-FFFF-FFFF" required>
+            <!-- 44 -->
+            <!-- <label class="required" for="key">Product Key :</label>
+            <input type="text" id="key" name="key" value="FFFF-FFFF-FFFF" required> -->
+
+            <!-- 45 -->
+            <label for="hardwareSerialNumber">Hardware Serial Number</label>
+            <input type="text" id="hardwareSerialNumber" name="hardwareSerialNumber" maxlength="16">
+
+
+            <!-- 46 -->
+            <label for="deliveryDate">Delivery date:</label>
+            <input type="date" id="deliveryDate" name="deliveryDate" />
+
+            <!-- 47 -->
             <div class="inline-select">
                 <label class="required" for="address">Select Email: </label>
                 <select id="selectEmail" name="selectEmail" required>
@@ -320,21 +399,13 @@
                     <option value="mfabian@boellhoff.com">mfabian@boellhoff.com</option>
                     <option value="a.goeppel@schrauben-engel.de">a.goeppel@schrauben-engel.de</option>
                     <option value="mgrassy@boellhoff.com">mgrassy@boellhoff.com</option>
-                    <!-- <option value="getahunraey@gmail.com">getahunraey@gmail.com</option> -->
+                    <option value="getahunraey@gmail.com">getahunraey@gmail.com</option>
                 </select>
             </div>
 
             <button type="submit">Generate Configuration</button>
     </div>
-
-
-
-
     </form>
     </div>
-    <script>
-
-
-    </script>
-    <script src="script.js?v=1.5"></script>
+    <script src="script.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"> </script>

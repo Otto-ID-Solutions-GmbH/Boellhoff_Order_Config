@@ -3,14 +3,14 @@ const salesUnit = document.getElementById("Sales-Unit");
 const customerNumber = document.getElementById("customerNumber");
 const stationNumber = document.getElementById("stationNumber");
 const address = document.getElementById("address");
-const teamviewerAlies = document.getElementById("teamviewer_alies");
+const teamviewerAlias = document.getElementById("teamviewer_alias");
 const final_cost_center = document.getElementById("final_cost_center");
 const dbm = document.getElementById("dbm");
 const antenna = document.getElementById("antenna");
-const seconds = document.getElementById("seconds");
+const seconds = document.getElementById("sendingEveryXSeconds");
 const floorScan1200 = document.getElementById("floorScan1200x800");
 const floorScan800 = document.getElementById("floorScan800x600");
-const powerChargerWrapper = document.getElementById("powerChargerWrapper");
+// const powerChargerWrapper = document.getElementById("powerChargerWrapper");
 const tAdapterWrapper = document.getElementById("tAdapterWrapper");
 const extensionCable1Wrapper = document.getElementById(
   "extensionCable15mWrapper"
@@ -30,6 +30,9 @@ const engel = document.getElementById("engel");
 const blockingTime = document.getElementById("blockingTime");
 const blockingTimeWrapper = document.getElementById("blockingTimeWrapper");
 const blockingTimeLable = document.getElementById("blockingTimeLable");
+const tutorialLink = document.getElementById("tutorialLink")
+const hardwareSerialNumber = document.getElementById("hardwareSerialNumber")
+
 
 const costCenter = {
   D10: "01059",
@@ -59,10 +62,9 @@ let timer;
 function inputHandler(pattern, value, ANlength, numlength, errorID, example) {
   clearTimeout(timer);
   if (value.length !== ANlength + numlength || !pattern.test(value)) {
-    timer = setTimeout(function() {
-      errorID.textContent = `Please enter a valid value with ${ANlength}${
-        ANlength === 1 ? " letter" : " letters"
-      } followed by ${numlength} numbers (e.g.${example})`;
+    timer = setTimeout(function () {
+      errorID.textContent = `Please enter a valid value with ${ANlength}${ANlength === 1 ? " letter" : " letters"
+        } followed by ${numlength} numbers (e.g.${example})`;
       errorID.style.display = "block";
     }, 1000);
   } else {
@@ -89,13 +91,13 @@ function displayer() {
       floorScan1200.value > 1 ||
       floorScan800.value > 1;
 
-    powerChargerWrapper.style.display = extensionCable1Wrapper.style.display = extensionCable3Wrapper.style.display = hasAll
+    extensionCable1Wrapper.style.display = extensionCable3Wrapper.style.display = hasAll
       ? "block"
       : "none";
 
     tAdapterWrapper.style.display = hasTAdapter ? "block" : "none";
   } else {
-    powerChargerWrapper.style.display = extensionCable1Wrapper.style.display = extensionCable3Wrapper.style.display = tAdapterWrapper.style.display =
+    extensionCable1Wrapper.style.display = extensionCable3Wrapper.style.display = tAdapterWrapper.style.display =
       "none";
   }
 }
@@ -118,14 +120,18 @@ function sendingMethodReactor() {
 
 function engelReactor() {
   const engelValue = engel.value;
-  if (engelValue == "FALSE") {
+  let newTutorialLink
+  if (engelValue == "false") {
+    newTutorialLink = "https://vimeo.com/814648271/f1e2928b55"
     blockingTimeWrapper.style.display = "none";
     blockingTime.required = false;
   }
-  else if (engelValue == "TRUE") {
+  else if (engelValue == "true") {
+    newTutorialLink = "https://vimeo.com/927017072/0039e5b432"
     blockingTimeWrapper.style.display = "block";
     blockingTime.required = true;
   }
+  valueUpdater(tutorialLink, newTutorialLink)
 }
 
 //final cost center
@@ -136,14 +142,12 @@ function updateFinalCostCenter() {
   }
 }
 
-//team viewer alies
-function updateTeamViewerAlies() {
-  const defaultAlies = `${deviceType.value}_${
-    salesUnit.value
-  }_${customerNumber.value.substring(3)}_${stationNumber.value}_${
-    address.value
-  }`;
-  valueUpdater(teamviewerAlies, defaultAlies);
+//team viewer alias
+function updateTeamViewerAlias() {
+  const defaultAlias = `${deviceType.value}_${salesUnit.value
+    }_${customerNumber.value.substring(3)}_${stationNumber.value}_${address.value
+    }`;
+  valueUpdater(teamviewerAlias, defaultAlias);
 }
 
 //dbm
@@ -157,12 +161,23 @@ function serialNumberPadder() {
   stationNumber.value = stationNumber.value.padStart(4, '0');
 }
 
+function hardwareSerialNumberChange() {
+  let newHardwareSerialNumber = ""
+  if (deviceType.value == "Eco-Mobile") {
+    newHardwareSerialNumber = "SN" + customerNumber.value + stationNumber.value
+  }
+  else {
+    newHardwareSerialNumber = ''
+  }
+  valueUpdater(hardwareSerialNumber, newHardwareSerialNumber)
+}
+
 //events
-deviceType.addEventListener("change", updateTeamViewerAlies);
-salesUnit.addEventListener("change", updateTeamViewerAlies);
-customerNumber.addEventListener("input", updateTeamViewerAlies);
-stationNumber.addEventListener("input", updateTeamViewerAlies);
-address.addEventListener("input", updateTeamViewerAlies);
+deviceType.addEventListener("change", updateTeamViewerAlias);
+salesUnit.addEventListener("change", updateTeamViewerAlias);
+customerNumber.addEventListener("input", updateTeamViewerAlias);
+stationNumber.addEventListener("input", updateTeamViewerAlias);
+address.addEventListener("input", updateTeamViewerAlias);
 salesUnit.addEventListener("change", updateFinalCostCenter);
 antenna.addEventListener("change", updatedbm);
 seconds.addEventListener("change", displayer);
@@ -173,10 +188,13 @@ deviceType.addEventListener("change", displayer);
 sendingMethod.addEventListener("change", sendingMethodReactor);
 engel.addEventListener("change", engelReactor);
 stationNumber.addEventListener('blur', serialNumberPadder)
+deviceType.addEventListener("change", hardwareSerialNumberChange);
+customerNumber.addEventListener("input", hardwareSerialNumberChange);
+stationNumber.addEventListener("input", hardwareSerialNumberChange);
 
-window.onload = function() {
+window.onload = function () {
   updatedbm();
-  updateTeamViewerAlies();
+  updateTeamViewerAlias();
   updateFinalCostCenter();
   displayer();
   sendingMethodReactor();

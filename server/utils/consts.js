@@ -8,7 +8,7 @@ const notInJSON = [
     "Device-Type", "Sales-Unit", "teamviewer_alies", "final_cost_center",
     "final_investment_number", "floorScan1200x800", "floorScan800x600",
     "shelfScan", "labelScan", "powerCharger", "tAdapter", "extensionCable15m",
-    "extensionCable3m", "WallMountingKit", "Order_number"
+    "extensionCable3m", "WallMountingKit", "Order_number", "deliveryDate", "teamviewer_alias"
 ];
 
 const typeMapping = {
@@ -31,11 +31,14 @@ const typeMapping = {
     landscape: "boolean",
     internalAntenna: "boolean",
     engel: "boolean",
+    postboxMode: "boolean",
+    showScannedLabelsCountInOrderView: "boolean",
+
 
     // Numbers
     // stationNumber: "number",
     final_cost_center: "number",
-    seconds: "number",
+    sendingEveryXSeconds: "number",
     floorScan1200x800: "number",
     floorScan800x600: "number",
     labelScan: "number",
@@ -45,7 +48,9 @@ const typeMapping = {
     extensionCable3m: "number",
     dbm: "number",
     blockingTime: "number",
-    WallMountingKit: "number"
+    WallMountingKit: "number",
+    showScreensaverAfterSeconds: "number",
+    fallBackToDashboardAfterSeconds: "number",
 };
 
 const Addresses = [
