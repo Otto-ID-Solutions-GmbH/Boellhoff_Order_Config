@@ -116,4 +116,64 @@ const Addresses = [
     },
 ];
 
-module.exports = { notInJSON, recipients, typeMapping, Addresses };
+const sleepSchedules = {
+        "Default 1. Schicht": [
+            {
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday"
+                ],
+                "endTime": "06:00",
+                "startTime": "20:00"
+            },
+            {
+                "days": [
+                    "saturday",
+                    "sunday"
+                ],
+                "endTime": "24:00",
+                "startTime": "00:00"
+            }
+        ],
+        "Default 2. Schicht": [
+            {
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday"
+                ],
+                "endTime": "04:00",
+                "startTime": "23:00"
+            },
+            {
+                "days": [
+                    "saturday",
+                    "sunday"
+                ],
+                "endTime": "24:00",
+                "startTime": "00:00"
+            }
+        ],
+        "Default 2. Schicht + WE": [
+            {
+                "days": [
+                    "monday",
+                    "tuesday",
+                    "wednesday",
+                    "thursday",
+                    "friday",
+                    "saturday",
+                    "sunday"
+                ],
+                "endTime": "04:00",
+                "startTime": "23:00"
+            }
+        ]
+    }
+
+module.exports = { notInJSON, recipients, typeMapping, Addresses, sleepSchedules };

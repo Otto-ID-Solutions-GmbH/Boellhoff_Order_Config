@@ -1,8 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
-const { notInJSON } = require("./utils/consts.js")
-const { convertValue, getAddressForEmail } = require("./utils/helperFunctions.js")
+const { handlerMap } = require("./utils/helperFunctions.js")
 const { sendEmails } = require('./utils/email.js');
 const { recipients } = require("./utils/recipients.js")
 
@@ -22,14 +21,8 @@ app.post("/submit", (req, res) => {
 
     // Filter the data
     for (const [key, value] of Object.entries(req.body)) {
-        if (notInJSON.includes(key)) {
-            jsonforText[key] = convertValue(key, value);
-        } else if (key === "selectEmail") {
-            emailAddress = value;
-            address = getAddressForEmail(value);
-        } else {
-            jsonforAttachment[key] = convertValue(key, value);
-        }
+        const handler = handlerMap[key] || handlerMap['default'];
+        handler(key, value, { jsonforText, jsonforAttachment, address, emailAddress });
     }
 
     const mailData = {
