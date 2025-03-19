@@ -20,8 +20,8 @@ function getAddressForEmail(email) {
 
 const handlerMap = {
     "selectEmail": (key, value, data) => {
-        data.emailAddress = value;
-        data.address = getAddressForEmail(value);
+        data.selectedRep.emailAddress = value;
+        data.selectedRep.address = getAddressForEmail(value);
     },
     "sleepSchedules": (key, value, data) => {
         data.jsonforAttachment[key] = getSleepSchedule(value);

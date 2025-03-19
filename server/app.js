@@ -16,14 +16,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post("/submit", (req, res) => {
     let jsonforAttachment = {};
     let jsonforText = {};
-    let address;
-    let emailAddress;
+    let selectedRep = {
+        address: "",
+        emailAddress: ""
+    };
 
     // Filter the data
     for (const [key, value] of Object.entries(req.body)) {
         const handler = handlerMap[key] || handlerMap['default'];
-        handler(key, value, { jsonforText, jsonforAttachment, address, emailAddress });
+        handler(key, value, { jsonforText, jsonforAttachment, selectedRep });
     }
+    const address = selectedRep.address
 
     const mailData = {
         address,
@@ -31,7 +34,7 @@ app.post("/submit", (req, res) => {
         jsonforAttachment
     };
 
-    sendEmails(recipients, mailData, emailAddress)
+    sendEmails(recipients, mailData, selectedRep.emailAddress)
         .then(() => res.sendFile(__dirname + "/views/thanks.html"))
         .catch(() => res.sendFile(__dirname + "/views/error.html"));
 });
