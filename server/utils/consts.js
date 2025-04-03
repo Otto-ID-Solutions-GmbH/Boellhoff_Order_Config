@@ -117,7 +117,7 @@ const Addresses = [
 ];
 
 const sleepSchedules = {
-        "Default 1. Schicht": [
+        "Default 1": [
             {
                 "days": [
                     "monday",
@@ -126,19 +126,11 @@ const sleepSchedules = {
                     "thursday",
                     "friday"
                 ],
-                "endTime": "06:00",
-                "startTime": "20:00"
-            },
-            {
-                "days": [
-                    "saturday",
-                    "sunday"
-                ],
-                "endTime": "24:00",
-                "startTime": "00:00"
+                "startTime": "06:00",
+                "endTime": "20:00"
             }
         ],
-        "Default 2. Schicht": [
+        "Default 2": [
             {
                 "days": [
                     "monday",
@@ -147,19 +139,11 @@ const sleepSchedules = {
                     "thursday",
                     "friday"
                 ],
-                "endTime": "04:00",
-                "startTime": "23:00"
-            },
-            {
-                "days": [
-                    "saturday",
-                    "sunday"
-                ],
-                "endTime": "24:00",
-                "startTime": "00:00"
+                "startTime": "04:00",
+                "endTime": "23:00"
             }
         ],
-        "Default 2. Schicht + WE": [
+        "Default 2 plus Wochenende": [
             {
                 "days": [
                     "monday",
@@ -170,8 +154,8 @@ const sleepSchedules = {
                     "saturday",
                     "sunday"
                 ],
-                "endTime": "04:00",
-                "startTime": "23:00"
+                "startTime": "04:00",
+                "endTime": "23:00"
             }
         ]
     }
