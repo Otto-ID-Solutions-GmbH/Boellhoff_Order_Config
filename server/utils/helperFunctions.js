@@ -1,4 +1,4 @@
-const { typeMapping, Addresses, sleepSchedules, notInJSON } = require('./consts')
+const { typeMapping, Addresses, wakeSchedules, notInJSON } = require('./consts')
 
 
 function convertValue(key, value) {
@@ -23,7 +23,7 @@ const handlerMap = {
         data.selectedRep.emailAddress = value;
         data.selectedRep.address = getAddressForEmail(value);
     },
-    "sleepSchedules": (key, value, data) => {
+    "wakeSchedules": (key, value, data) => {
         data.jsonforAttachment[key] = getSleepSchedule(value);
     },
     "default": (key, value, data) => {
@@ -36,7 +36,7 @@ const handlerMap = {
 };
 
 function getSleepSchedule(sleepScheduleKey){
-    return sleepSchedules[sleepScheduleKey];
+    return wakeSchedules[sleepScheduleKey];
 } 
 
 module.exports = { handlerMap };
