@@ -116,7 +116,7 @@ const Addresses = [
     },
 ];
 
-const sleepSchedules = {
+const wakeSchedules = {
         "Default 1": [
             {
                 "days": [
@@ -160,4 +160,4 @@ const sleepSchedules = {
         ]
     }
 
-module.exports = { notInJSON, recipients, typeMapping, Addresses, sleepSchedules };
+module.exports = { notInJSON, recipients, typeMapping, Addresses, wakeSchedules };
