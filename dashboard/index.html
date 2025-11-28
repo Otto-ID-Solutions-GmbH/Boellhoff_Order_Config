@@ -71,6 +71,7 @@
 
             <!-- 7 -->
             <label class="required" for="customerNumber">Customer Number </label>
+            <small class="field-hint">Format: 3 letters + 7 digits (e.g., ABC1234567)</small>
             <input type="text" id="customerNumber" name="customerNumber" pattern="[A-Za-z]{3}[0-9]{7}" maxlength="10"
                 oninput="customerNumberValidation(this)" required>
             <div id="error-message_customer" class="error-message" style="display: none;"></div>
