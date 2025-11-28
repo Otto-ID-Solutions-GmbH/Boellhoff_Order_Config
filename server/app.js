@@ -1,10 +1,10 @@
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const { handlerMap } = require("./utils/helperFunctions.js")
 const { sendEmails } = require('./utils/email.js');
 const { recipients } = require("./utils/recipients.js")
-
 dotenv.config();
 
 const app = express();
