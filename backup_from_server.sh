@@ -8,4 +8,4 @@ LOCAL_BACKUP_DIR="backups/$(date +%Y-%m-%d_%H-%M)"
 
 mkdir -p "$LOCAL_BACKUP_DIR"
 
-rsync -avz --progress "$REMOTE_HOST:$REMOTE_PATH" "$LOCAL_BACKUP_DIR/"
+rsync -azq "$REMOTE_HOST:$REMOTE_PATH" "$LOCAL_BACKUP_DIR/"
