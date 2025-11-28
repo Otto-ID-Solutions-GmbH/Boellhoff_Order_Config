@@ -199,6 +199,18 @@ window.onload = function () {
   displayer();
   sendingMethodReactor();
   engelReactor();
+
+  // Add real-time validation on input
+  const form = document.getElementById("configForm");
+  const inputs = form.querySelectorAll("input, select");
+  inputs.forEach(function (input) {
+    input.addEventListener("input", function () {
+      this.classList.add("touched");
+    });
+    input.addEventListener("change", function () {
+      this.classList.add("touched");
+    });
+  });
 };
 
 

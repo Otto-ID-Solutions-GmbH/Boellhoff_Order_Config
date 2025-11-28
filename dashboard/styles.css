@@ -163,6 +163,17 @@ button[type="submit"]:active {
   font-size: 0.85rem;
 }
 
+form input.touched:invalid,
+form select.touched:invalid {
+  border-color: #e53935;
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.1);
+}
+
+.inline-select select.touched:invalid {
+  border-color: #e53935;
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.1);
+}
+
 #daysWrapper,
 #timeWrapper,
 #secondsWrapper,
